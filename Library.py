@@ -100,39 +100,47 @@ def returnBook():
 
 
 
+def Menu():
 
-print("Enter your choice")
-
-user = input(
-    "1.Rent a book\n2.Add a new book\n3.Return the book\n4.Show Book list\n-> ")
-
-if user == "1":
-    rentBook()
-
-elif user == "2":
-    addBook()
-
-elif user == "3":
-    returnBook()
-
-elif user == "4":
-
-    with open('library.txt', 'r') as f:
-        books = f.read()
-
-    with open('rented.txt', 'r') as f:
-        rbooks = f.read()
-    u = input("which book list you want Rented(r) or Library (l) : ")
-
-    if u == "l":
-        print(f"Books present in library:\n{books}")
-
-    elif u == "r":
-        print(f"Rented Books:\n{rbooks}")
-
+    print('''===>>_.Welcome To Library._<<===
+    Enter your choice''')
+    
+    user = input('''
+    1.Rent a book
+    2.Add a new book
+    3.Return the book
+    4.Show Book list
+    -> ''')
+    
+    if user == "1":
+        rentBook()
+    
+    elif user == "2":
+        addBook()
+    
+    elif user == "3":
+        returnBook()
+    
+    elif user == "4":
+    
+        with open('library.txt', 'r') as f:
+            books = f.read()
+    
+        with open('rented.txt', 'r') as f:
+            rbooks = f.read()
+        u = input("which book list you want Rented(r) or Library (l) : ")
+    
+        if u == "l":
+            print(f"Books present in library:\n{books}")
+    
+        elif u == "r":
+            print(f"Rented Books:\n{rbooks}")
+    
+        else:
+            print("please choose the correct option")
+    
     else:
         print("please choose the correct option")
+    return Menu()
 
-
-else:
-    print("please choose the correct option")
+Menu() 
